@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.text-block {
+  max-width: 45%;
+  z-index: 1;
+}
+
+.text-block h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.text-block p {
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.steve-img {
+  position: absolute;
+  bottom: 0;
+  right: 5vw;
+  height: 95vh;
+  object-fit: contain;
+}
+
+/* Portrait/mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4vh 4vw;
+  }
+
+  .text-box {
+    max-width: 45%;
+    margin-top: 3vh;
+  }
+
+  .text-box h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .text-box p {
+    font-size: 0.9rem;
+  }
+
+  .steve-img {
+    max-height: 90vh;
+    height: auto;
+    width: auto;
+    align-self: flex-end;
+    margin-left: 1vw;
+  }
+}
