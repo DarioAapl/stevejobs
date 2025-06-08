@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
   margin: 0;
   padding: 0;
@@ -13,60 +14,104 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100vh;
-  padding: 0 5vw;
+  padding: 4vw;
   box-sizing: border-box;
   position: relative;
 }
 
-.text-block {
+.text-box {
   max-width: 45%;
-  z-index: 1;
 }
 
-.text-block h1 {
+.text-box h1 {
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: black;
 }
 
-.text-block p {
+.text-box p {
   font-size: 1.5rem;
   color: #444;
 }
 
 .steve-img {
   position: absolute;
+  right: 0;
   bottom: 0;
-  right: 5vw;
-  height: 95vh;
+  height: 100vh;
   object-fit: contain;
+  z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .container {
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1rem;
+    align-items: flex-start;
+    padding: 4vh 6vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
 
   .text-box {
-    margin-bottom: 2rem;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    z-index: 2;
   }
 
   .text-box h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
   }
 
   .text-box p {
     font-size: 1rem;
+    color: #444;
   }
 
   .steve-img {
-    max-height: 60vh;
-    width: auto;
-    margin-left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 65vh;
+    object-fit: contain;
+    z-index: 0;
   }
 }
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4vh 6vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .text-box {
+    max-width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .text-box h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .text-box p {
+    font-size: 1.2rem;
+  }
+
+  .steve-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 85vh;
+    object-fit: contain;
+  }
+}
+
+
