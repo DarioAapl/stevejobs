@@ -5,15 +5,13 @@ body {
   background-color: white;
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 4vw;
   box-sizing: border-box;
   position: relative;
@@ -43,6 +41,7 @@ body {
   z-index: 1;
 }
 
+/* Media Queries */
 @media (max-width: 768px) and (orientation: portrait) {
   .container {
     flex-direction: column;
@@ -114,4 +113,88 @@ body {
   }
 }
 
+/* Scroll Down Icon */
+.scroll-down {
+  position: absolute;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+  z-index: 5;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Timeline */
+/* TIMELINE SECTION */
+#timeline {
+  position: relative;
+  background: #f9f9f9;
+  padding: 4rem 2rem;
+}
+
+/* LINE - now inside the first event only */
+.timeline-line {
+  position: absolute;
+  top: 50%; /* starts from center of dot */
+  left: -50px; /* match dot center */
+  width: 4px;
+  height: 100vh; /* long enough to reach all other dots */
+  background: #888;
+  z-index: 0;
+}
+
+/* EACH EVENT */
+.event {
+  position: relative;
+  margin-left: 80px;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.event.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* DOTS */
+.event-dot {
+  position: absolute;
+  left: -58px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: #888;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* FIRST DOT NO PATCH NEEDED — LINE BEGINS FROM IT */
+
+.event h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.event p {
+  margin: 0.5rem 0 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.event img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
