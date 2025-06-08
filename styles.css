@@ -90,7 +90,7 @@ body {
   }
 
   .text-box {
-    max-width: 50%;
+    max-width: 75%;
     margin: 0;
     padding: 0;
   }
@@ -117,7 +117,7 @@ body {
 .scroll-down {
   position: absolute;
   bottom: 2vh;
-  left: 50%;
+  left: 15%;
   transform: translateX(-50%);
   font-size: 2rem;
   cursor: pointer;
@@ -141,13 +141,15 @@ body {
 /* LINE - now inside the first event only */
 .timeline-line {
   position: absolute;
-  top: 50%; /* starts from center of dot */
-  left: -50px; /* match dot center */
+  left: 58px; /* aligns center with 16px-wide dot at left: -58px */
+  top: 0;
+  height: 0;
   width: 4px;
-  height: 100vh; /* long enough to reach all other dots */
   background: #888;
   z-index: 0;
+  transition: height 0.5s ease-out;
 }
+
 
 /* EACH EVENT */
 .event {
@@ -196,5 +198,11 @@ body {
   max-width: 300px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease-out;
 }
-
+.event.visible img {
+  opacity: 1;
+  transform: translateX(0);
+}

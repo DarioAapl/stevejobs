@@ -1,16 +1,26 @@
-// script.js
-const events = document.querySelectorAll(".event");
+document.addEventListener("DOMContentLoaded", () => {
+  const events = document.querySelectorAll(".event");
+  const timelineLine = document.querySelector(".timeline-line");
 
-function checkVisibility() {
-  const triggerBottom = window.innerHeight * 0.85;
+  let maxOffset = 0;
 
-  events.forEach(event => {
-    const rect = event.getBoundingClientRect();
-    if (rect.top < triggerBottom) {
-      event.classList.add("visible");
-    }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+
+        const eventBottom = entry.target.offsetTop + entry.target.offsetHeight / 2;
+        if (eventBottom > maxOffset) {
+          maxOffset = eventBottom;
+          timelineLine.style.height = `${maxOffset}px`;
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
   });
-}
 
-window.addEventListener("scroll", checkVisibility);
-window.addEventListener("load", checkVisibility);
+  events.forEach(event => observer.observe(event));
+});
