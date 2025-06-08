@@ -141,14 +141,15 @@ body {
 /* LINE - now inside the first event only */
 .timeline-line {
   position: absolute;
-  left: 58px; /* aligns center with 16px-wide dot at left: -58px */
+  left: 58px;
   top: 0;
-  height: 0;
   width: 4px;
   background: #888;
   z-index: 0;
   transition: height 0.5s ease-out;
+  /* Remove fixed height */
 }
+
 
 
 /* EACH EVENT */
@@ -254,3 +255,31 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.thank-you-section {
+  padding: 3rem 1rem 2rem;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+  background-color: white;
+}
+
+
+
+.thank-you-section .think-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.thank-you-section .think-button:hover {
+  background-color: #333;
+}
+
